@@ -5,3 +5,7 @@ html {
 body {
   font-family: 'Segoe UI';
 }
+
+p{
+    font-size: 18px;
+}

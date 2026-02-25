@@ -5,6 +5,7 @@ import Page1 from './components/pages/page1.jsx'
 import Page2 from './components/pages/page2.jsx'
 import Page3 from './components/pages/page3.jsx'
 import RepoNav from './components/repository/repoNav.jsx'
+import Post from './components/post/post.jsx'
 import Navbar from './components/navbar/navbar.jsx'
 import { people } from './components/data/data.jsx'
 import brFlag from './assets/brasil.png';
@@ -42,8 +43,9 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Page1 />} />
                         <Route path="/projetos" element={<Page2 />} />
-                        <Route path="/post" element={<Page3 />} />
                         <Route path="/repo" element={<RepoNav />} />
+                        <Route path="/post" element={<Page3 />} />
+                        <Route path="/inPost" element={<Post />} />
                     </Routes>
                 </div>
             </div>

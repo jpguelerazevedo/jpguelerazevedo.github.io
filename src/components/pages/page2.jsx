@@ -1,11 +1,15 @@
 
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
-import './style.css'
 import { useLanguage } from '../../context/LanguageContext';
 
 function Page2() {
     const { language } = useLanguage();
+    const labels = {
+        title: { pt: 'Projetos', en: 'Projects' },
+        descriptionBadge: { pt: 'Descrição', en: 'Description' },
+        viewProject: { pt: 'Ver projeto >', en: 'View project >' }
+    }
     const [githubProjects, setGithubProjects] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -56,18 +60,24 @@ function Page2() {
     return (
         <div className='row m-3'>
             <div className='col-12  p-3'>
-                <h3>{language === 'pt' ? 'Projetos' : 'Projects'}</h3>
+                <h3>{labels.title[language]}</h3>
             </div>
-            {todosProjetos.map((projeto, index) => (
-                <div key={index} className='col-12 col-lg-6 pb-3'>
-                    <div className='p-3 bg-light border border-black h-100 d-flex flex-column'>
-                        <h4><strong>{projeto.title}</strong></h4>
-                        <h6 className='text-muted'>{projeto.subtitle}</h6>
-                        <p className=''>{projeto.description || (language === 'pt' ? 'Sem descrição.' : 'No description.')}</p>
-                        <button className='btn btn-link mt-auto p-0 ms-auto' onClick={() => navigate('/repo', { state: projeto })}>{language === 'pt' ? 'Ver projeto' : 'View project'}</button>
+            {todosProjetos.map((projeto, index) => {
+                const raw = projeto.description || (language === 'pt' ? 'Sem descrição.' : 'No description.')
+                // const desc = raw && raw.length > 200 ? raw.slice(0, 200) + '...' : raw
+                return (
+                    <div key={index} className='col-12 col-lg-6 pb-3' style={{ height: '250px' }}>
+                        <div className='p-3  border-start border-3 bg-light h-100 d-flex flex-column'>
+                            <h4 className='fw-semibold'>{projeto.title}</h4>
+                            <h6 className='text-muted'>{projeto.subtitle}</h6>
+                            <p className='overflow-hidden m-0' style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', textOverflow: 'ellipsis' }}>
+                                {raw}
+                            </p>
+                            <button className='icon-link btn btn-link align-self-start mt-auto p-0' onClick={() => navigate('/repo', { state: projeto })}>{labels.viewProject[language]}</button>
+                        </div>
                     </div>
-                </div>
-            ))}
+                )
+            })}
         </div>
     )
 }
