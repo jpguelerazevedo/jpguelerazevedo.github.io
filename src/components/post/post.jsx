@@ -36,9 +36,9 @@ function Post() {
 
                     <div className='col-12 mt-4 '>
                         <div className='col-12 col-md-10 col-lg-8 mx-auto'>
+                            <h6 className='text-center mb-0 text-muted'>{state.subtitle[language]}</h6>
+                            <h2 className='fw-bold text-center mb-4'>{state.title[language]}</h2>
 
-                            <h2 className='fw-bold text-center mb-2'>{state.title[language]}</h2>
-                            <h6 className='text-center mb-4 '>{state.subtitle[language]}</h6>
 
                         </div>
 
