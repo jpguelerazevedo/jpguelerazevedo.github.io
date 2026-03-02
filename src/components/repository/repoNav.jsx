@@ -24,6 +24,7 @@ export default function RepoNav() {
     const [currentFolder, setCurrentFolder] = useState('')
     const [selectedPath, setSelectedPath] = useState('')
     const [fileContent, setFileContent] = useState(null)
+    const [fileType, setFileType] = useState(null) // 'text' | 'image' | null
 
     const [loadingTree, setLoadingTree] = useState(false)
     const [loadingFile, setLoadingFile] = useState(false)
@@ -102,6 +103,7 @@ export default function RepoNav() {
         setLoadingFile(true)
         setSelectedPath(path)
         setFileContent(null)
+        setFileType(null)
         try {
             const owner = projeto.owner || projeto.repoOwner || projeto.owner_login
             const repo = projeto.repoName || projeto.name
@@ -109,16 +111,33 @@ export default function RepoNav() {
             const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`)
             const json = await res.json()
             if (json && json.content && json.encoding === 'base64') {
-                // Decodifica base64 preservando UTF-8 (acentos)
-                try {
-                    const b64 = json.content.replace(/\n/g, '')
-                    const binary = atob(b64)
-                    const bytes = Uint8Array.from(binary.split('').map(c => c.charCodeAt(0)))
-                    const decoder = new TextDecoder('utf-8')
-                    setFileContent(decoder.decode(bytes))
-                } catch (e) {
-                    // Fallback para navegadores antigos
-                    setFileContent(decodeURIComponent(escape(atob(json.content.replace(/\n/g, '')))))
+                // Detect image by extension and show as data URL, otherwise decode as text
+                const ext = path.split('.').pop().toLowerCase()
+                const imageTypes = {
+                    png: 'image/png',
+                    jpg: 'image/jpeg',
+                    jpeg: 'image/jpeg',
+                    gif: 'image/gif',
+                    webp: 'image/webp',
+                    svg: 'image/svg+xml',
+                    bmp: 'image/bmp',
+                }
+                const b64 = json.content.replace(/\n/g, '')
+                if (imageTypes[ext]) {
+                    setFileType('image')
+                    setFileContent(`data:${imageTypes[ext]};base64,${b64}`)
+                } else {
+                    setFileType('text')
+                    // Decodifica base64 preservando UTF-8 (acentos)
+                    try {
+                        const binary = atob(b64)
+                        const bytes = Uint8Array.from(binary.split('').map(c => c.charCodeAt(0)))
+                        const decoder = new TextDecoder('utf-8')
+                        setFileContent(decoder.decode(bytes))
+                    } catch (e) {
+                        // Fallback para navegadores antigos
+                        setFileContent(decodeURIComponent(escape(atob(b64))))
+                    }
                 }
             } else {
                 setFileContent(null)
@@ -198,7 +217,13 @@ export default function RepoNav() {
                                 {loadingFile ? (
                                     <div className='small text-muted m-0 ps-3'>{labels.loadingFile[language]}</div>
                                 ) : fileContent ? (
-                                    <pre className='p-3 pt-2 d-inline-block' style={{ minWidth: '100%' }}>{fileContent}</pre>
+                                    fileType === 'image' ? (
+                                        <div className='p-3 d-flex justify-content-center align-items-center' style={{ height: '100%' }}>
+                                            <img src={fileContent} alt={selectedPath} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+                                        </div>
+                                    ) : (
+                                        <pre className='p-3 pt-2 d-inline-block' style={{ minWidth: '100%' }}>{fileContent}</pre>
+                                    )
                                 ) : (
                                     <div className='small text-muted ps-3'>{labels.noFileSelected[language]}</div>
                                 )}
