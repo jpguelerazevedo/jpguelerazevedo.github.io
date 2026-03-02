@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import ScrollToTop from './utilities/ScrollToTop.jsx';
 import './App.css'
 
@@ -51,6 +51,7 @@ function App() {
                         <Route path="/repo" element={<RepoNav />} />
                         <Route path="/post" element={<Page3 />} />
                         <Route path="/inPost" element={<Post />} />
+                        <Route path="*" element={<Navigate to="/" replace />} />
                     </Routes>
                 </div>
             </div>
