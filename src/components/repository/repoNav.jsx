@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useLanguage } from '../../utilities/LanguageContext'
 
 export default function RepoNav() {
     const { language } = useLanguage()
     const navigate = useNavigate()
-    const location = useLocation()
-    const projeto = location?.state || null
+    const { repoName } = useParams()
+
+    const [projeto, setProjeto] = useState(null)
 
     const labels = {
         back: { pt: '< Voltar', en: '< Back' },
@@ -28,6 +29,40 @@ export default function RepoNav() {
 
     const [loadingTree, setLoadingTree] = useState(false)
     const [loadingFile, setLoadingFile] = useState(false)
+    const [loadingRepo, setLoadingRepo] = useState(true)
+
+    // Efeito para buscar as informações detalhadas do repositório pelo nome (fixando o dono)
+    useEffect(() => {
+        if (!repoName) return;
+        const _owner = 'jpguelerazevedo'; // fixo conforme solicitado
+
+        async function fetchRepoData() {
+            setLoadingRepo(true)
+            try {
+                const res = await fetch(`https://api.github.com/repos/${_owner}/${repoName}`)
+                const data = await res.json()
+                if (res.ok) {
+                    setProjeto({
+                        title: data.name,
+                        subtitle: data.language || 'GitHub',
+                        description: data.description,
+                        link: data.html_url,
+                        repoName: data.name,
+                        owner: data.owner?.login,
+                        default_branch: data.default_branch || 'main'
+                    })
+                } else {
+                    console.error("Erro ao buscar repo", data)
+                    setProjeto(null)
+                }
+            } catch (error) {
+                console.error("Erro no fetchRepoData:", error)
+            } finally {
+                setLoadingRepo(false)
+            }
+        }
+        fetchRepoData();
+    }, [repoName])
 
     useEffect(() => {
         if (!projeto) return
@@ -150,7 +185,9 @@ export default function RepoNav() {
         }
     }
 
-
+    if (loadingRepo || !projeto) {
+        return <div className="p-5 text-center">{language === 'en' ? 'Loading repository information...' : 'Carregando informações do repositório...'}</div>
+    }
 
     return (
         <>
@@ -232,8 +269,6 @@ export default function RepoNav() {
                     </div>
                 </div>
             </div>
-
-
         </>
     )
 }

@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import ScrollToTop from './utilities/ScrollToTop.jsx';
 import './App.css'
-
 import Page1 from './components/pages/page1.jsx'
 import Page2 from './components/pages/page2.jsx'
 import Page3 from './components/pages/page3.jsx'
@@ -48,9 +47,9 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Page1 />} />
                         <Route path="/projetos" element={<Page2 />} />
-                        <Route path="/repo" element={<RepoNav />} />
+                        <Route path="/repo/:repoName" element={<RepoNav />} />
                         <Route path="/post" element={<Page3 />} />
-                        <Route path="/inPost" element={<Post />} />
+                        <Route path="/post/:postName" element={<Post />} />
                         <Route path="*" element={<Navigate to="/" replace />} />
                     </Routes>
                 </div>

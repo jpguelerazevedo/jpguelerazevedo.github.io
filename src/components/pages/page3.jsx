@@ -9,14 +9,20 @@ function page3() {
     const { language } = useLanguage()
 
     useEffect(() => {
-            // Atualiza o título da aba quando a página carrega ou o idioma muda
-            document.title = `JLab - ${labels.title[language]}`;
-        }, [language]);
+        // Atualiza o título da aba quando a página carrega ou o idioma muda
+        document.title = `JLab - ${labels.title[language]}`;
+    }, [language]);
 
     const labels = {
         title: { pt: 'Postagens', en: 'Posts' },
         viewPost: { pt: 'Ler mais >', en: 'Read more >' }
     }
+
+    // Função utilitária para transformar um título em slug/nome na url pegando do texto
+    const slugify = (text) => text.toString().toLowerCase().trim()
+        .replace(/\s+/g, '-')
+        .replace(/[^\w\-]+/g, '')
+        .replace(/\-\-+/g, '-');
 
     return (
 
@@ -44,7 +50,7 @@ function page3() {
                                     <p className='text-muted small mb-0  lh-1'>
                                         {p.data[language]} - {p.local[language]}
                                     </p>
-                                    <button className='icon-link btn btn-link ms-auto ms-lg-auto p-0 mb-0 mb-lg-3  text-nowrap flex-shrink-0 align-self-baseline' onClick={() => navigate('/inPost', { state: p })}>{labels.viewPost[language]}</button>
+                                    <button className='icon-link btn btn-link ms-auto ms-lg-auto p-0 mb-0 mb-lg-3  text-nowrap flex-shrink-0 align-self-baseline' onClick={() => navigate(`/post/${slugify(p.title.pt)}`)}>{labels.viewPost[language]}</button>
                                 </div>
                             </div>
                         </div>

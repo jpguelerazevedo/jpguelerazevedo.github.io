@@ -79,7 +79,7 @@ function Page2() {
                             <p className='overflow-hidden m-0' style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', textOverflow: 'ellipsis' }}>
                                 {raw}
                             </p>
-                            <button className='icon-link btn btn-link align-self-start mt-auto p-0' onClick={() => navigate('/repo', { state: projeto })}>{labels.viewProject[language]}</button>
+                            <button className='icon-link btn btn-link align-self-start mt-auto p-0' onClick={() => navigate(`/repo/${projeto.repoName}`)}>{labels.viewProject[language]}</button>
                         </div>
                     </div>
                 )
