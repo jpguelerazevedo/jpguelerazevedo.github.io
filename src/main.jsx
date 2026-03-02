@@ -6,7 +6,7 @@ import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter basename="/bootstrap-frontend-lab">
+    <BrowserRouter basename="/react-frontend-lab">
       <LanguageProvider>
         <App />
       </LanguageProvider>
