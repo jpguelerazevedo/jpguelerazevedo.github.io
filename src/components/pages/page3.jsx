@@ -33,12 +33,12 @@ function page3() {
             </div>
             {post.map((p, index) => {
                 return (
-                    <div key={index} className='col-12 m-2 ms-0 pb-lg-0'>
-                        <div className='row pt-0 p-0 p-lg-1 ps-lg-0'>
-                            <div className='col-lg-5 col-12 pe-1 pe-lg-0'>
+                    <div key={index} className='row pt-0 p-3 pe-2 ps-2 p-lg-2 ps-lg-0'>
+
+                            <div className='col-lg-5 col-12 p-0 ps-lg-2 '>
                                 <img src={p.image.url} alt={p.image.alt} className='img-fluid w-100 h-100 object-fit-cover border' />
                             </div>
-                            <div className='bg-light p-3 mx-auto mx-lg-0 m-lg-3 ms-lg-0 col-lg-7 col-10 d-flex flex-column justify-content-between custom-card-border' >
+                            <div className='bg-light p-3 mx-auto mx-lg-0 m-lg-4 ms-lg-0 col-lg-7 col-10 d-flex flex-column justify-content-between custom-card-border' >
                                 <div className='d-flex flex-column gap-2'>
                                     <h6 className='text-muted text-uppercase mt-lg-3  mb-0 '>{p.subtitle[language]}</h6>
                                     <h4 className='mb-1 fw-semibold'>{p.title[language]}</h4>
@@ -53,7 +53,7 @@ function page3() {
                                     <button className='icon-link btn btn-link ms-auto ms-lg-auto p-0 mb-0 mb-lg-3  text-nowrap flex-shrink-0 align-self-baseline' onClick={() => navigate(`/post/${slugify(p.title.pt)}`)}>{labels.viewPost[language]}</button>
                                 </div>
                             </div>
-                        </div>
+                      
                     </div>
                 )
             })}
