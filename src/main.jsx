@@ -1,34 +1,18 @@
 import { StrictMode } from 'react'
-import { createRoot, hydrateRoot } from 'react-dom/client'
+import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import { LanguageProvider } from './utilities/LanguageContext.jsx'
 import App from './App.jsx'
 
-const rootElement = document.getElementById('root');
-
-if (rootElement.hasChildNodes()) {
-   hydrateRoot(
-      rootElement,
-      <StrictMode>
-         <BrowserRouter>
-            <LanguageProvider>
-               <App />
-            </LanguageProvider>
-         </BrowserRouter>
-      </StrictMode>
-   );
-} else {
-   createRoot(rootElement).render(
-      <StrictMode>
-         <BrowserRouter>
-            <LanguageProvider>
-               <App />
-            </LanguageProvider>
-         </BrowserRouter>
-      </StrictMode>
-   );
-}
-
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <BrowserRouter>
+      <LanguageProvider>
+        <App />
+      </LanguageProvider>
+    </BrowserRouter>
+  </StrictMode>,
+)
 /*
     INSTRUÇÕES PARA DOMÍNIO CUSTOMIZADO / SERVIDOR (colocar aqui antes do deploy):
 
