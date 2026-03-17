@@ -68,7 +68,7 @@ function Post() {
                                 <h6 className='text-muted small mb-0 pt-1 fst-italic'>{currentPost.data[language]} - {currentPost.local[language]}</h6>
                             </div>
                             <div></div>
-                            <p className='' dangerouslySetInnerHTML={{ __html: currentPost.content[language] }} style={{ textAlign: 'justify' }}></p>
+                            <div className='text-break' dangerouslySetInnerHTML={{ __html: currentPost.content[language] }} style={{ textAlign: 'justify' }}></div>
 
                         </div>
                     </div>

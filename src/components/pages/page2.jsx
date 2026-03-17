@@ -74,7 +74,7 @@ function Page2() {
                 return (
                     <div key={index} className='col-12 col-lg-6 p-2 justify-content-center' style={{ height: '250px' }}>
                         <div className='p-3 border bg-light h-100 d-flex flex-column '>
-                            <h4 className='fw-semibold'>{projeto.title}</h4>
+                            <h4 className='fw-semibold text-break'>{projeto.title}</h4>
                             <h6 className='text-muted'>{projeto.subtitle}</h6>
                             <p className='overflow-hidden m-0' style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', textOverflow: 'ellipsis' }}>
                                 {raw}

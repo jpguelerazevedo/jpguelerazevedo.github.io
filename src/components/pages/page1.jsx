@@ -35,7 +35,7 @@ function Page1() {
             </div>
             <div className='col-12 p-2 pt-0 pb-1'>
                 <div className='clearfix'>
-                    <div className='float-md-end pt-2  ms-md-4  col-12 col-md-6 col-lg-4'>
+                    <div className='float-md-end pt-2  ms-md-4  col-12 col-md-6 col-lg-4 text-break'>
                         <div className='p-3 d-flex flex-column bg-light border'>
                             <p className='mb-2 text-center'>{person.name}</p>
                             <img src={person.src} className="img-fluid mb-2 align-self-center w-100" style={{ maxWidth: '350px' }} alt={person.name} />
@@ -67,7 +67,7 @@ function Page1() {
                     </div>
 
                     <div className='pt-3 pt-md-0' style={{ textAlign: 'justify' }}>
-                        <p className='' dangerouslySetInnerHTML={{ __html: person.description[language] }}></p>
+                        <div className='post-content' dangerouslySetInnerHTML={{ __html: person.description[language] }}></div>
                     </div>
                 </div>
             </div>

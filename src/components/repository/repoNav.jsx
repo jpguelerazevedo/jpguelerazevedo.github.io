@@ -204,7 +204,7 @@ export default function RepoNav() {
                         </a>
                     </div>
                     <div className='col-12 col-lg-6 p-3'>
-                        <h3 className='fw-semibold'>{projeto.title}</h3>
+                        <h3 className='fw-semibold text-break'>{projeto.title}</h3>
                         <h6 className='text-muted'>{projeto.subtitle}</h6>
                         <p>{projeto.description || labels.noDescription[language]}</p>
                     </div>
