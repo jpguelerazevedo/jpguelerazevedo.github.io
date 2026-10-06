@@ -34,22 +34,33 @@ export const people = [
             instagram: 'https://www.instagram.com/joaopaulog_a/',
             linkedin: 'https://www.linkedin.com/in/jpguelerazevedo',
         },
-        description: {
+        // Repositórios fixados (pinned) no perfil do GitHub, na ordem em que aparecem lá
+        pinnedRepos: [
+            'intelligent-banking-agent',
+            'ai-agent-powerbi',
+            'brazilian-music-NER-project',
+            'CNPJ-export-automation',
+            'jpguelerazevedo.github.io',
+            'okno-website',
+        ],
+        role: {
+            pt: 'Desenvolvedor de software & IA',
+            en: 'Software developer & AI',
+        },
+        about: {
             pt: `
-<p>Olá, sou <strong>João Paulo Gueller Azevedo</strong> (mas pode me chamar de João), um desenvolvedor de software brasileiro e entusiasta na área de Inteligência Artificial. Atuo na interseção entre o Processamento de Linguagem Natural (NLP) e a eficiência operacional. Atualmente, foco minha carreira na especialização em automações inteligentes, empregando meu laboratório pessoal para criar posts que transformam informação bruta em conhecimento rápido sobre essa jornada.</p>
-<p>Tive a oportunidade de obter destaque acadêmico e técnico ao projetar soluções de Inteligência Artificial para o <a href="https://www.ifes.edu.br/" target="_blank" rel="noopener noreferrer">IFES</a>, pesquisa que serviu como base para meu <a href="https://repositorio.ifes.edu.br/handle/123456789/7323" target="_blank" rel="noopener noreferrer">Trabalho de Conclusão de Curso (TCC)</a>. O projeto aplica modelos de IA para interpretar editais complexos, facilitando o acesso à informação por meio de uma interface inteligente. Além disso, no setor logístico, liderei a criação de um sistema de gestão de frotas para a Prefeitura Municipal de Castelo.</p>
-<p>Minha base técnica é marcada pela versatilidade entre o poder de processamento e a clareza visual. Domino o ecossistema <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">Python</a> para automações e IA, integrando essas capacidades ao <a href="https://powerbi.microsoft.com/" target="_blank" rel="noopener noreferrer">Power BI</a> para gerar análises preditivas profundas. No desenvolvimento back-end, emprego <a href="https://nodejs.org/" target="_blank" rel="noopener noreferrer">Node.js</a> e <a href="https://www.postgresql.org/" target="_blank" rel="noopener noreferrer">PostgreSQL</a> na construção de APIs robustas e escaláveis. Já no front-end, aplico <a href="https://react.dev/" target="_blank" rel="noopener noreferrer">React</a> e <a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer">Bootstrap</a> para conceber interfaces modernas e responsivas, priorizando uma navegação fluida que torna a tecnologia verdadeiramente acessível. Complemento minha stack com experiência em <a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer">Docker</a> e gestão de versão com <a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer">Git</a>.</p>
-<p>Meus estudos e foco profissional concentram-se na criação de agentes de IA e pipelines de automação, recorrendo a ferramentas e bibliotecas como <a href="https://python.langchain.com/en/latest/" target="_blank" rel="noopener noreferrer">LangChain</a>, <a href="https://www.langchain.com/langsmith" target="_blank" rel="noopener noreferrer">LangSmith</a>, <a href="https://scikit-learn.org/stable/" target="_blank" rel="noopener noreferrer">scikit-learn</a>, <a href="https://numpy.org/" target="_blank" rel="noopener noreferrer">NumPy</a> e <a href="https://pandas.pydata.org/" target="_blank" rel="noopener noreferrer">pandas</a>. Orquestro essas tecnologias para construir agentes que integram ferramentas externas, realizam pré-processamento de dados e validam fluxos em ambientes de produção.</p>
-<p>Além das linhas de código do dia a dia, mantenho este 'Lab' como um verdadeiro sandbox vivo. Mais do que um portfólio, é um blog onde documento minha trajetória e os testes que faço com novas tecnologias. Transformei esse espaço em um caderno de estudos aberto, onde compartilho meus experimentos práticos e troco ideias sobre o desenvolvimento de soluções e a aplicação de Inteligência Artificial no mundo real.</p>            
-
+<p>Desenvolvo sistemas full-stack e automações com Inteligência Artificial. Formado em Sistemas de Informação pelo IFES, trabalho como desenvolvedor na prefeitura da minha cidade e como freelancer na Handshake, com testes para Inteligência Artificial. Hoje meus estudos estão voltados para IA e Python.</p>
 `,
             en: `
-<p>Hello, I'm <strong>João Paulo Gueller Azevedo</strong> (but you can call me João), a Brazilian software developer and Artificial Intelligence enthusiast. I work at the intersection of Natural Language Processing (NLP) and operational efficiency. Currently, I focus my career on specializing in intelligent automations, using my personal lab to create posts that transform raw information into quick knowledge about this journey.</p>
-<p>I had the opportunity to achieve academic and technical recognition by designing Artificial Intelligence solutions for <a href="https://www.ifes.edu.br/" target="_blank" rel="noopener noreferrer">IFES</a>, research that served as the foundation for my <a href="https://repositorio.ifes.edu.br/handle/123456789/7323" target="_blank" rel="noopener noreferrer">Capstone Project (TCC)</a>. The project applies AI models to interpret complex public notices, facilitating access to information through an intelligent interface. Furthermore, in the logistics sector, I led the creation of a fleet management system for the City Hall of Castelo.</p>
-<p>My technical foundation is marked by versatility, balancing processing power with visual clarity. I master the <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">Python</a> ecosystem for automations and AI, integrating these capabilities with <a href="https://powerbi.microsoft.com/" target="_blank" rel="noopener noreferrer">Power BI</a> to generate deep predictive analyses. In back-end development, I use <a href="https://nodejs.org/" target="_blank" rel="noopener noreferrer">Node.js</a> and <a href="https://www.postgresql.org/" target="_blank" rel="noopener noreferrer">PostgreSQL</a> to build robust and scalable APIs. On the front-end, I apply <a href="https://react.dev/" target="_blank" rel="noopener noreferrer">React</a> and <a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer">Bootstrap</a> to design modern and responsive interfaces, prioritizing fluid navigation that makes technology truly accessible. I round out my stack with experience in <a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer">Docker</a> and version control using <a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer">Git</a>.</p>
-<p>My studies and professional focus are centered on creating AI agents and automation pipelines, using tools and libraries such as <a href="https://python.langchain.com/en/latest/" target="_blank" rel="noopener noreferrer">LangChain</a>, <a href="https://www.langchain.com/langsmith" target="_blank" rel="noopener noreferrer">LangSmith</a>, <a href="https://scikit-learn.org/stable/" target="_blank" rel="noopener noreferrer">scikit-learn</a>, <a href="https://numpy.org/" target="_blank" rel="noopener noreferrer">NumPy</a>, and <a href="https://pandas.pydata.org/" target="_blank" rel="noopener noreferrer">pandas</a>. I orchestrate these technologies to build agents that integrate external tools, perform data preprocessing, and validate workflows in production environments.</p>
-<p>Beyond my everyday coding, I keep this 'Lab' as a true living sandbox. Much more than a portfolio, it's a blog where I document my background and the tests I run with emerging technologies. I've turned this space into an open journal, sharing my hands-on experiments and exchanging ideas about building solutions and applying Artificial Intelligence in the real world.</p>
-            
+<p>I build full-stack systems and AI automations. With a degree in Information Systems from IFES, I work as a developer for my city's government and freelance for Handshake on AI testing. These days my studies are focused on AI and Python.</p>
+`,
+        },
+        ai: {
+            pt: `
+<p>Crio agentes de IA e automações para atendimento e análise de dados, principalmente com Python, LangChain e LangGraph. Dois desses projetos estão no meu GitHub: <a href="https://github.com/jpguelerazevedo/intelligent-banking-agent" target="_blank" rel="noopener noreferrer">um atendimento bancário feito por agentes de IA especializados</a> e <a href="https://github.com/jpguelerazevedo/ai-agent-powerbi" target="_blank" rel="noopener noreferrer">um assistente de BI que gera gráficos e análises a partir de perguntas em linguagem natural</a>.</p>
+`,
+            en: `
+<p>I build AI agents and automations for customer service and data analysis, mostly with Python, LangChain, and LangGraph. Two of these projects are on my GitHub: <a href="https://github.com/jpguelerazevedo/intelligent-banking-agent" target="_blank" rel="noopener noreferrer">a banking support system run by specialized AI agents</a> and <a href="https://github.com/jpguelerazevedo/ai-agent-powerbi" target="_blank" rel="noopener noreferrer">a BI assistant that generates charts and analyses from natural-language questions</a>.</p>
 `,
         },
         linguage: {
@@ -57,6 +68,16 @@ export const people = [
             en: 'Portuguese (Native), English (Advanced)'
         }
     }
+];
+
+// Sites reais exibidos logo abaixo do "Sobre".
+// Para preencher: coloque o print em src/assets, importe no topo deste arquivo
+// (como as imagens dos posts) e use em `image`; em `url` vai o link do site.
+export const sites = [
+    { name: 'Nome do site 1', url: '', image: null },
+    { name: 'Nome do site 2', url: '', image: null },
+    { name: 'Nome do site 3', url: '', image: null },
+    { name: 'Nome do site 4', url: '', image: null },
 ];
 
 export const post = [
@@ -83,8 +104,7 @@ export const post = [
 
 <p>Para quem trabalha com <strong>Python</strong>, a implementação desses servidores é simplificada pelo SDK <strong>FastMCP</strong>. Abaixo, um exemplo de como estruturar um servidor que permite à <strong>IA</strong> listar, ler e organizar arquivos localmente:</p>
 
-<pre><code>
-<span style="color: #cf222e; font-weight: bold;">from</span> mcp.server.fastmcp <span style="color: #cf222e; font-weight: bold;">import</span> FastMCP
+<pre><code><span style="color: #cf222e; font-weight: bold;">from</span> mcp.server.fastmcp <span style="color: #cf222e; font-weight: bold;">import</span> FastMCP
 <span style="color: #cf222e; font-weight: bold;">import</span> os
 <span style="color: #cf222e; font-weight: bold;">import</span> shutil
 
@@ -134,8 +154,7 @@ mcp = FastMCP("Gerenciador de Arquivos JLab")
 
 <p>For Python users, implementing these servers is simplified by the <strong>FastMCP</strong> SDK. Below is an example of structuring a server that lets the <strong>AI</strong> list, read, and organize files locally:</p>
 
-<pre><code>
-<span style="color: #cf222e; font-weight: bold;">from</span> mcp.server.fastmcp <span style="color: #cf222e; font-weight: bold;">import</span> FastMCP
+<pre><code><span style="color: #cf222e; font-weight: bold;">from</span> mcp.server.fastmcp <span style="color: #cf222e; font-weight: bold;">import</span> FastMCP
 <span style="color: #cf222e; font-weight: bold;">import</span> os
 <span style="color: #cf222e; font-weight: bold;">import</span> shutil
 
@@ -185,6 +204,7 @@ mcp = FastMCP("File Manager JLab")
             }
         },
         data: {
+            iso: '2026-03-16',
             pt: '16 de Março de 2026',
             en: 'March 16, 2026'
         },
@@ -214,8 +234,7 @@ mcp = FastMCP("File Manager JLab")
 <p>Simultaneamente, o teste de unidade nos agentes valida sua estrutura estática. Isso envolve verificar o registro correto de ferramentas e se os <strong>System Prompts</strong> mantêm a integridade e restrições de segurança definidas. Em vez de testar a resposta final da <strong>IA</strong>, validamos se o agente foi montado corretamente, prevenindo regressões onde alterações no código poderiam desativar capacidades críticas. O <strong>Pytest</strong> transforma sistemas experimentais em software resiliente, onde cada componente é validado em seu próprio domínio de certeza.</p>
 <p>Para materializar esses conceitos, apresento abaixo um exemplo prático de implementação. No primeiro teste, simulamos uma ferramenta de análise de vendas onde o acesso ao disco é interceptado: o <code>monkeypatch</code> substitui a função de leitura do <strong>pandas</strong> para que ela retorne um conjunto de dados fixo em memória, permitindo validar a lógica de cálculo sem depender de arquivos reais. No segundo teste, verificamos a arquitetura do agente, garantindo que ele possua as ferramentas necessárias e o comportamento básico esperado antes de entrar em execução.</p>
 
-<pre><code>
-<span style="color: #cf222e; font-weight: bold;">import</span> pytest
+<pre><code><span style="color: #cf222e; font-weight: bold;">import</span> pytest
 <span style="color: #cf222e; font-weight: bold;">import</span> pandas <span style="color: #cf222e; font-weight: bold;">as</span> pd
 <span style="color: #cf222e; font-weight: bold;">from</span> unittest.mock <span style="color: #cf222e; font-weight: bold;">import</span> MagicMock
 <span style="color: #cf222e; font-weight: bold;">from</span> meu_projeto.agents <span style="color: #cf222e; font-weight: bold;">import</span> AnalistaFinanceiro
@@ -254,8 +273,7 @@ mcp = FastMCP("File Manager JLab")
 <p>Unit testing for agents also validates their setup. This includes verifying the registration of tools and ensuring that <strong>System Prompts</strong> follow the defined constraints. Instead of only testing the final response, we validate that the agent is configured as intended, preventing potential regressions. <strong>Pytest</strong> helps make experimental systems more stable, where each component is verified within a controlled environment.</p>
 <p>Here is a practical example. In the first test, we simulate a sales analysis tool where disk access is intercepted: <code>monkeypatch</code> replaces the <strong>pandas</strong> read function to return a fixed dataset, allowing us to validate calculation logic without external dependencies. In the second test, we verify the agent's configuration, ensuring it has the necessary tools and expected behavior.</p>
 
-<pre><code>
-<span style="color: #cf222e; font-weight: bold;">import</span> pytest
+<pre><code><span style="color: #cf222e; font-weight: bold;">import</span> pytest
 <span style="color: #cf222e; font-weight: bold;">import</span> pandas <span style="color: #cf222e; font-weight: bold;">as</span> pd
 <span style="color: #cf222e; font-weight: bold;">from</span> unittest.mock <span style="color: #cf222e; font-weight: bold;">import</span> MagicMock
 <span style="color: #cf222e; font-weight: bold;">from</span> my_project.agents <span style="color: #cf222e; font-weight: bold;">import</span> FinanceAnalyst
@@ -295,6 +313,7 @@ mcp = FastMCP("File Manager JLab")
             }
         },
         data: {
+            iso: '2026-03-02',
             pt: '2 de Março de 2026',
             en: 'March 2, 2026'
         },
@@ -351,6 +370,7 @@ mcp = FastMCP("File Manager JLab")
             }
         },
         data: {
+            iso: '2026-02-25',
             pt: '25 de Fevereiro de 2026',
             en: 'February 25, 2026'
         },
