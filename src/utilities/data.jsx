@@ -1,10 +1,14 @@
 import post1 from '../assets/post1.png';
 import post2 from '../assets/post2.png';
 import post3 from '../assets/post3.webp';
+import oknoWebsite from '../assets/okno-website.webp';
+import contacWebsite from '../assets/contac-website.png';
+import oknoVideo from '../assets/okno-website.mp4';
+import contacVideo from '../assets/contac-website.mp4';
 
 export const people = [
     {
-        name: 'João Paulo Gueller Azevedo',
+        name: 'João Paulo G. Azevedo',
         lastName: 'Azevedo',
         codiname: 'jpguelerazevedo',
         email: 'jpguelerazevedo@gmail.com',
@@ -71,13 +75,12 @@ export const people = [
 ];
 
 // Sites reais exibidos logo abaixo do "Sobre".
-// Para preencher: coloque o print em src/assets, importe no topo deste arquivo
+// Para adicionar: coloque o print em src/assets, importe no topo deste arquivo
 // (como as imagens dos posts) e use em `image`; em `url` vai o link do site.
+// `video` é opcional: um mp4 curto e sem som que roda em loop no lugar da imagem.
 export const sites = [
-    { name: 'Nome do site 1', url: '', image: null },
-    { name: 'Nome do site 2', url: '', image: null },
-    { name: 'Nome do site 3', url: '', image: null },
-    { name: 'Nome do site 4', url: '', image: null },
+    { name: 'Okno', url: 'https://jpguelerazevedo.github.io/okno-website/', image: oknoWebsite, video: oknoVideo },
+    { name: 'Contac', url: 'https://jpguelerazevedo.github.io/contac-website/', image: contacWebsite, video: contacVideo },
 ];
 
 export const post = [

@@ -293,43 +293,23 @@ a.item:hover .item-external {
   color: var(--fg);
 }
 
-/* Faixa rolante com previews de sites */
-.strip {
-  --strip-gap: 8px;
-  display: block;
-  border-radius: 6px;
-}
-
-.strip-mask {
-  overflow: hidden;
-  padding-block: 16px;
-  margin-block: -16px;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 72px, #000 calc(100% - 72px), transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 72px, #000 calc(100% - 72px), transparent);
-}
-
-.strip-track {
-  position: relative;
-  display: flex;
-  width: max-content;
-  animation: strip-drift linear infinite;
-}
-
+/* Previews de sites lado a lado */
 .strip-copy {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 8px;
+}
+
+/* A altura fixa do item impede que o crescimento no hover empurre o conteúdo abaixo */
+.strip-copy > * {
+  flex: none;
   display: flex;
   align-items: center;
   height: 64px;
-  gap: var(--strip-gap);
-  padding-right: var(--strip-gap);
-}
-
-.strip-copy > * {
-  flex: none;
-  display: block;
   border-radius: 4px;
 }
 
-.strip-copy img,
+.strip-copy :is(img, video),
 .strip-placeholder {
   height: 64px;
   border-radius: 4px;
@@ -338,8 +318,8 @@ a.item:hover .item-external {
 }
 
 /* A miniatura sob o mouse cresce e empurra as vizinhas, mantendo o espaçamento */
-.strip-copy > :hover img,
-.strip-copy > :focus-visible img,
+.strip-copy > :hover :is(img, video),
+.strip-copy > :focus-visible :is(img, video),
 .strip-copy > :hover .strip-placeholder {
   height: 80px;
 }
@@ -349,8 +329,8 @@ a.item:hover .item-external {
 }
 
 /* As vizinhas imediatas (antes e depois) também sobem um pouco */
-.strip-copy > :hover + * img,
-.strip-copy > :has(+ :hover) img,
+.strip-copy > :hover + * :is(img, video),
+.strip-copy > :has(+ :hover) :is(img, video),
 .strip-copy > :hover + * .strip-placeholder,
 .strip-copy > :has(+ :hover) .strip-placeholder {
   height: 70px;
@@ -361,9 +341,16 @@ a.item:hover .item-external {
   width: 112px;
 }
 
-.strip-copy img {
+.strip-copy :is(img, video) {
   width: auto;
   max-width: none;
+}
+
+/* Os vídeos são gravados em 16:10; a proporção fixa evita salto de largura enquanto carregam */
+.strip-copy video {
+  display: block;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
 }
 
 .strip-placeholder {
@@ -372,17 +359,6 @@ a.item:hover .item-external {
   width: 102px;
   color: var(--underline);
   font-size: 11px;
-}
-
-.strip:hover .strip-track,
-.strip:focus-within .strip-track {
-  animation-play-state: paused;
-}
-
-@keyframes strip-drift {
-  to {
-    transform: translateX(-50%);
-  }
 }
 
 /* Post */
@@ -504,10 +480,6 @@ a.item:hover .item-external {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .strip-track {
-    animation: none;
-  }
-
   *,
   :after,
   :before {

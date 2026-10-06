@@ -7,8 +7,6 @@ import { GitHubIcon, ExternalIcon } from '../../utilities/icons.jsx'
 import Header from '../header/header.jsx'
 import Footer from '../footer/footer.jsx'
 
-const MIN_STRIP_ITEMS = 8
-
 function Home() {
     const { language } = useLanguage()
     const person = people[0]
@@ -27,9 +25,6 @@ function Home() {
         contact: { pt: 'Contato', en: 'Contact' },
         contactText: { pt: 'Para um projeto ou uma dúvida, escreva para', en: 'For a project or a question, write to' },
     }
-
-    // Repete a lista até ter itens suficientes para a faixa preencher a coluna inteira
-    const stripSites = Array.from({ length: Math.ceil(MIN_STRIP_ITEMS / sites.length) }, () => sites).flat()
 
     useEffect(() => {
         document.title = `${person.name} - ${person.role[language]}`
@@ -59,30 +54,23 @@ function Home() {
                 </section>
 
                 <section id='sites' className='section section-tight' aria-label={labels.sites[language]}>
-                    <div className='strip'>
-                        <div className='strip-mask'>
-                            <div className='strip-track' style={{ animationDuration: `${stripSites.length * 5}s` }}>
-                                {/* Duas cópias iguais lado a lado: quando a primeira sai da tela, a animação recomeça sem salto */}
-                                {[false, true].map(isCopy => (
-                                    <div key={isCopy} className='strip-copy' aria-hidden={isCopy || undefined}>
-                                        {stripSites.map((site, index) => {
-                                            const preview = site.image
-                                                ? <img src={site.image} alt={site.name} />
-                                                : <span className='strip-placeholder'>Preview</span>
-                                            // Sem link ainda: mostra só o preview, sem ser clicável
-                                            return site.url ? (
-                                                <a key={index} href={site.url} title={site.name} target='_blank' rel='noopener noreferrer'
-                                                    tabIndex={isCopy || index >= sites.length ? -1 : undefined}>
-                                                    {preview}
-                                                </a>
-                                            ) : (
-                                                <span key={index} title={site.name}>{preview}</span>
-                                            )
-                                        })}
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
+                    <div className='strip-copy'>
+                        {sites.map((site, index) => {
+                            // Vídeo curto do site quando houver; a imagem serve de capa enquanto ele carrega
+                            const preview = site.video
+                                ? <video src={site.video} poster={site.image || undefined} aria-label={site.name} autoPlay muted loop playsInline />
+                                : site.image
+                                ? <img src={site.image} alt={site.name} />
+                                : <span className='strip-placeholder'>Preview</span>
+                            // Sem link ainda: mostra só o preview, sem ser clicável
+                            return site.url ? (
+                                <a key={index} href={site.url} title={site.name} target='_blank' rel='noopener noreferrer'>
+                                    {preview}
+                                </a>
+                            ) : (
+                                <span key={index} title={site.name}>{preview}</span>
+                            )
+                        })}
                     </div>
                 </section>
 
