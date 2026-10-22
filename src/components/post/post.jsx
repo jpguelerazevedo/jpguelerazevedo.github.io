@@ -13,6 +13,7 @@ function Post() {
     const labels = {
         notFound: { pt: 'Post não encontrado.', en: 'Post not found.' },
         back: { pt: 'Voltar para o início', en: 'Back to home' },
+        home: { pt: 'Início', en: 'Home' },
         minRead: { pt: 'min de leitura', en: 'min read' },
         more: { pt: 'Mais postagens', en: 'More writing' },
     }
@@ -35,6 +36,9 @@ function Post() {
                     </section>
                 ) : (
                     <article className='article'>
+                        <p className='article-back'>
+                            <Link to='/#writing'><span aria-hidden='true'>←</span> {labels.home[language]}</Link>
+                        </p>
                         <h1>{currentPost.title[language]}</h1>
                         <p className='meta'>
                             <time dateTime={currentPost.data.iso}>{currentPost.data[language]}</time> · {readingTime(currentPost.content[language])} {labels.minRead[language]}

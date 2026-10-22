@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { people, post, sites } from '../../utilities/data.jsx'
 import { useLanguage } from '../../utilities/LanguageContext.jsx'
 import { postUrl, shortDate } from '../../utilities/posts.js'
@@ -11,6 +11,7 @@ function Home() {
     const { language } = useLanguage()
     const person = people[0]
     const [projects, setProjects] = useState([])
+    const { hash } = useLocation()
 
     const labels = {
         about: { pt: 'Sobre', en: 'About' },
@@ -29,6 +30,11 @@ function Home() {
     useEffect(() => {
         document.title = `${person.name} - ${person.role[language]}`
     }, [language])
+
+    useEffect(() => {
+        // Os projetos chegam depois e empurram as seções abaixo; reposiciona na âncora (ex.: /#writing)
+        if (projects.length && hash) document.getElementById(hash.slice(1))?.scrollIntoView()
+    }, [projects])
 
     useEffect(() => {
         // Busca os repositórios públicos do GitHub e mantém só os fixados, na ordem do perfil

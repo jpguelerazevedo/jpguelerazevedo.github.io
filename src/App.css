@@ -157,6 +157,11 @@ main {
   margin-top: var(--section-gap);
 }
 
+/* Respiro acima da seção quando a página rola até ela por âncora (ex.: /#writing) */
+.section {
+  scroll-margin-top: 64px;
+}
+
 .section + .section-tight {
   margin-top: calc(var(--section-gap) / 2);
 }
@@ -283,13 +288,21 @@ a.item:hover .item-external {
   font-size: 14px;
 }
 
-.list-more a {
+/* Link de volta ao início, acima do título do post */
+.article-back {
+  margin: 0 0 16px;
+  text-align: right;
+}
+
+.list-more a,
+.article-back a {
   color: var(--muted);
   text-decoration: none;
   transition: color .15s ease;
 }
 
-.list-more a:hover {
+.list-more a:hover,
+.article-back a:hover {
   color: var(--fg);
 }
 

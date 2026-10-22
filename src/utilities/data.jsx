@@ -42,9 +42,9 @@ export const people = [
         pinnedRepos: [
             'intelligent-banking-agent',
             'ai-agent-powerbi',
+            'claude-clean-cli',
             'brazilian-music-NER-project',
             'CNPJ-export-automation',
-            'jpguelerazevedo.github.io',
             'okno-website',
         ],
         role: {
