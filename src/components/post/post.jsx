@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import { MoveLeft } from 'lucide-react'
 import { useLanguage } from '../../utilities/LanguageContext'
 import { people, post } from '../../utilities/data'
 import { slugify, postUrl, readingTime } from '../../utilities/posts.js'
@@ -37,7 +38,10 @@ function Post() {
                 ) : (
                     <article className='article'>
                         <p className='article-back'>
-                            <Link to='/#writing'><span aria-hidden='true'>←</span> {labels.home[language]}</Link>
+                            <Link to='/#writing'>
+                                <MoveLeft aria-hidden='true' size={16} strokeWidth={1.75} />
+                                {labels.home[language]}
+                            </Link>
                         </p>
                         <h1>{currentPost.title[language]}</h1>
                         <p className='meta'>

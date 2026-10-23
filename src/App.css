@@ -301,6 +301,13 @@ a.item:hover .item-external {
   transition: color .15s ease;
 }
 
+/* Seta em SVG: o subset da Inter no Google Fonts não inclui "←", então o glifo vinha de outra fonte e ficava desalinhado */
+.article-back a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
 .list-more a:hover,
 .article-back a:hover {
   color: var(--fg);
